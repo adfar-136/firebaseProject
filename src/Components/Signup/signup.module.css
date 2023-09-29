@@ -1,0 +1,65 @@
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,110,1) 0%, rgba(0,212,255,1) 100%);
+}
+.signup-form{
+    border: 2px solid ;
+    min-width: 450px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 35px;
+    border-radius: 25px;
+    background-color: #197ed0;
+    height: 85vh;
+}
+.heading{
+    text-align: center;
+    color: #fafafa;
+    font-size: 40px;
+}
+.footer{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+.footer button{
+    border: none;
+    background-color: crimson;
+    color: #fff;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.footer button:disabled{
+    background-color: gray;
+}
+.footer .account{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+.footer .account a{
+    text-decoration: none; 
+    background-color: crimson;
+    color: #fff;
+    border-radius: 8px;
+    padding: 13px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+ }
+ .footer p{
+    font-weight: bold;
+    color: #fff;
+ }
