@@ -4,12 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import storeee from "./ReduxThunk/store";
+import storer from "./Reduxclass/storer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.Fragment>
-    <Provider store={storeee}>
+    <Provider store={storer}>
        <App />
     </Provider>
   </React.Fragment>
