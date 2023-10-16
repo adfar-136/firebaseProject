@@ -19,7 +19,7 @@ const handleLogin = ()=>{
   }
   setErrMsg("");
   signInWithEmailAndPassword(auth,values.email,values.password).then((res)=>{
-    navigate("/profile")
+    navigate(-1)
   }).catch((err)=>{
     setErrMsg(err.message)
   })
