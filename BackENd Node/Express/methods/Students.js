@@ -1,0 +1,53 @@
+var students = [{
+    "id": 1,
+    "first_name": "Cristy",
+    "last_name": "Dearle-Palser",
+    "email": "cdearlepalser0@fotki.com"
+  }, {
+    "id": 2,
+    "first_name": "Suki",
+    "last_name": "Carryer",
+    "email": "scarryer1@dmoz.org"
+  }, {
+    "id": 3,
+    "first_name": "Glyn",
+    "last_name": "Zambonini",
+    "email": "gzambonini2@techcrunch.com"
+  }, {
+    "id": 4,
+    "first_name": "Rogers",
+    "last_name": "Caughey",
+    "email": "rcaughey3@php.net"
+  }, {
+    "id": 5,
+    "first_name": "Paule",
+    "last_name": "Healey",
+    "email": "phealey4@4shared.com"
+  }, {
+    "id": 6,
+    "first_name": "Daisi",
+    "last_name": "Pragnell",
+    "email": "dpragnell5@dyndns.org"
+  }, {
+    "id": 7,
+    "first_name": "Mord",
+    "last_name": "Demer",
+    "email": "mdemer6@163.com"
+  }, {
+    "id": 8,
+    "first_name": "Dal",
+    "last_name": "Zorzin",
+    "email": "dzorzin7@jugem.jp"
+  }, {
+    "id": 9,
+    "first_name": "Tonia",
+    "last_name": "Morshead",
+    "email": "tmorshead8@umn.edu"
+  }, {
+    "id": 10,
+    "first_name": "Urbain",
+    "last_name": "Woodbridge",
+    "email": "uwoodbridge9@hp.com"
+  }];
+  module.exports = students;
+  
