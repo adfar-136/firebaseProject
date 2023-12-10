@@ -1,7 +1,14 @@
 const express = require("express");
+const app = express();
 const bodyParser = require("body-parser");
 const { User } = require("./database");
-const app = express();
+const passport = require("passport");
+const {initialisePassport,isAuthenticated} = require("./passportconfig");
+const expressSession = require("express-session");
+initialisePassport(passport);
+app.use(expressSession({secret:"secret",resave:false}))
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))
 app.set("view engine","ejs")
@@ -16,17 +23,25 @@ app.post("/register",async (req,res)=>{
     const newUser= await User.create(req.body);
     res.status(201).send(newUser)
 })
-app.post("/login",async (req,res)=>{
-    const user = await User.findOne({username:req.body.username})
-    if(user.password === req.body.password){
-    return res.send(`Hey welcome back Mr ${user.name}`)
-    }
-    return res.send("invalid credentials")
-
+app.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/profile');
+  });
+app.get("/profile",isAuthenticated,(req,res)=>{
+    const user = req.user;
+    res.render("profile",{user})
 })
  app.get("/login",(req,res)=>{
     res.render("login")
  })
+ app.get("/logout",(req,res)=>{
+     req.logOut(()=>{
+
+     })
+     res.redirect("/")
+ })
+ 
 app.get("/register",(req,res)=>{
  res.render("register")
 })

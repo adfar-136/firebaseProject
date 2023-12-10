@@ -1,0 +1,66 @@
+import React, { useState, useEffect } from 'react';
+
+const App = () => {
+  const [dataList, setDataList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+        const result = await response.json();
+        setDataList(result);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const postData = async () => {
+    try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title: 'New Post',
+          body: 'This is the body of the new post.',
+          userId: 1,
+        }),
+      });
+
+      const result = await response.json();
+      // Update the state with the new item
+      setDataList([...dataList, result]);
+    } catch (error) {
+      console.error('Error posting data:', error);
+    }
+  };
+
+  return (
+    <div>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+          <h1>Data</h1>
+          <ul>
+            {dataList.map(item => (
+              <li key={item.id}>
+                {item.title} - {item.body}
+              </li>
+            ))}
+          </ul>
+          <button onClick={postData}>Post Data</button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export  {App};
